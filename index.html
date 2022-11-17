@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Animation</title>
+        <style>
+            * {
+                margin: 0;
+                padding: 0;
+            }
+            body, html{
+                height: 100%;
+            }
+            body {
+                background: blueviolet;
+                transition: all 0.7s;
+            }
+            .button{
+                background: #fff;
+                width: 60px;
+                height: 30px;
+                border-radius: 100px;
+                position: relative;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                cursor: pointer;
+            }
+            .button::before{
+                content: '';
+                display: block;
+                background: violet;
+                width: 26px;
+                height: 26px;
+                margin: 2px;
+                border-radius: 100px;
+                float: left;
+                transition: all 0.7s;
+            }
+            .day{
+                background:violet;
+            }
+            .day .button{
+                background: #fff;
+            }
+            .day .button::before{
+                background: blueviolet;
+                margin-left: 32px;
+            }
+        </style>
+        <script>
+            function change() {
+                if(document.body.classList.contains('day')){
+                    document.body.className = "";
+                } else {
+                    document.body.className = "day";
+                }
+            }
+        </script>
+    </head>
+    <body>
+        <div class="button" onclick="change()"></div>
+    </body>
+</html>
